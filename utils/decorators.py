@@ -11,6 +11,7 @@ def validate_token(func):
         try:
             token = request.headers.environ['HTTP_AUTHORIZATION']
             try:
+                # validate token with google
                 idinfo = id_token.verify_oauth2_token(token, requests.Request(), CLIENT_ID)
                 google_id = idinfo["sub"]
                 name = idinfo["name"]
