@@ -3,6 +3,7 @@ import config
 from extensions import db, cors, api
 
 from auth.views import auth_bp
+from network.views import network_bp
 
 app = Flask(__name__)
 
@@ -15,6 +16,7 @@ api.init_app(app)
 
 # registers blueprint
 app.register_blueprint(auth_bp)
+app.register_blueprint(network_bp)
 
 if __name__ == "__main__":
     app.run(debug=True, port=4444)
